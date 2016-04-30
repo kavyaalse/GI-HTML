@@ -79,9 +79,9 @@
 		    function drawChart() {
 		      var data = google.visualization.arrayToDataTable([
 			["No of generations", "No of plants", { role: "style" } ],
-			["Green pod tall plant", 78, "green"],
-			["Green pod short plant", 9, "silver"],
-			["Yellow pod tall plant", 9, "gold"],
+			["Green pod tall plant", 97, "green"],
+			["Green pod short plant", 0, "silver"],
+			["Yellow pod tall plant", 0, "gold"],
 			["Yellow pod short plant", 3, "yellow"]
 		      ]);
 
