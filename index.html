@@ -11,6 +11,14 @@
   <script src="ui.js"></script>
   <script src="simulation.js"></script>
   <style type="text/css">
+  #menu4 {
+  	padding-left: 12%;
+  	padding-right: 12%;
+  }
+  .col-sm-6 {
+  	border: 1px;
+  	border-color: #000;
+  }
   </style>
 </head>
 <body>
@@ -155,12 +163,22 @@
 	    
 	    <div id="menu5" class="tab-pane fade">
 		    
-		    <label> 
+		   <br/>
+	    	<label> 
 		    	Agent <button type="button" class="btn btn-primary" id="addAgentButton"> + </button> 
 			</label>
-			<div id="addAgentDialog"> </div>
-			<div id="addAgentA"> </div>
-			<div id="addAgentB"> </div>
+		    <div class="row">
+			    <div class="col-sm-6">
+			     	<div id="addAgentDialog"> </div>
+					<div id="addAgentA"> </div>
+					<div id="addAgentB"> </div>
+			    </div>
+			    <div class="col-sm-6">
+			    	<div id="environmentSpace"> 
+			    		<label> Number of generations : <input type="number" id="noOfGeneration" name="noOfGeneration" width='60px' /> </label>
+			    	</div>
+			    </div>
+			 </div>
 
 	    </div>
 	    
