@@ -11,7 +11,7 @@
   <script src="ui.js"></script>
   <script src="simulation.js"></script>
   <style type="text/css">
-  #menu4 {
+  #menu5 {
   	padding-left: 12%;
   	padding-right: 12%;
   }
@@ -163,19 +163,22 @@
 	    
 	    <div id="menu5" class="tab-pane fade">
 		    
-		   <br/>
+			    	<br/>
 	    	<label> 
 		    	Agent <button type="button" class="btn btn-primary" id="addAgentButton"> + </button> 
 			</label>
 		    <div class="row">
 			    <div class="col-sm-6">
 			     	<div id="addAgentDialog"> </div>
-					<div id="addAgentA"> </div>
+			     	<div id="addAgentA"> </div>
 					<div id="addAgentB"> </div>
+					
 			    </div>
 			    <div class="col-sm-6">
 			    	<div id="environmentSpace"> 
-			    		<label> Number of generations : <input type="number" id="noOfGeneration" name="noOfGeneration" width='60px' /> </label>
+			    		<p> Specify the environment variables here: </p>
+			    		<label> Number of generations : </label> <input type="number" id="noOfGeneration" name="noOfGeneration" width='60px' />  <br/>
+			    		 <label> Type of cross: </label> <select> <option>None</option><option :selected>Self</option> <option>Inter-cross</option></select>
 			    	</div>
 			    </div>
 			 </div>
@@ -184,11 +187,12 @@
 	    
 	    <div id="menu6" class="tab-pane fade">
 		    <h3>Build</h3>
-		    <p>In a garden there are only green pod and tall pea plants. After one generation there were plants which are both tall and dwarf with green and yellow pod appeared. After two generation most of the plants were tall with green pods while only 3 per cent plant had dwarf with yellow pod. In these plants only self pollination occurred and all plants produce viable seeds. The garden can't have more than 100 plants due to limited resources. Assuming that we are considering only one pod per plant. 
-			<br/>
-			Question -  
-			<br/>
-			What was the ratio of genotypes of plants at the beginning? Give an explanation with experimental setup of how it might have 			happened. You are required to test hypothesis in the following format (Lawson's flowchart) </p>
+		    <label> 
+		    	Add rules <button type="button" class="btn btn-primary" id="addRuleButton"> + </button> 
+			</label>
+			<div id="addRuleDialog"> </div>
+		
+	    //menu6 - Build ends fter this
 	    </div>
 	    
 	    <div id="menu7" class="tab-pane fade">
