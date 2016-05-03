@@ -117,7 +117,7 @@ $( document ).ready(function() {
                 }
         });
         $( "#addAgentDialog" ).dialog(open);
-        $('[data-toggle="tooltip"]').tooltip(); 
+	    $('[data-toggle="tooltip"]').tooltip(); 
     });
 
     //If a property is selected, allow for the values to be put in. This function has to be automated yet.
