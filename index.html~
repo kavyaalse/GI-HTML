@@ -51,23 +51,21 @@
 	   
 	    <div id="menu1" class="tab-pane fade">
 	      <h3>Genetics</h3>
-	      <p>Pattern of inheritance: Autosomal or sex or cytoplasmic inheritance <br/>  
-			<br/> Genotype and phenotype. Phenotype- External appearance also known as character eg: seed colour. Generally seed colour of a pea plant are of two types yellow seed colour and green seed colour. 
+	      <p style="text-align:justify;"> <b> Pattern of inheritance: Autosomal or sex or cytoplasmic inheritance </b> <br/>  
+			<br/> <b> Genotype and phenotype.</b> Phenotype- External appearance also known as character eg: seed colour. Generally seed colour of a pea plant are of two types yellow seed colour and green seed colour. 
 				Genotype-Genetic composition eg: Yy.For every genotype there is a set of chromosome responsible for it, these pairs of chromosomes are known as allele.eg Yy
 				In a pair of allele, one is dominant and is represented by capital letter eg Y and the recessive character is represented by small letter y.
 				Heterozygote  (hetero-different) alleles means different one dominant and one recessive allele (Yy)
 				Homozygote (homo-same) allele can be either both dominant  (eg: YY) or both recessive (eg: yy) <br/> 
-			<br/> Monohybrid cross or di-hybrid cross.So a di-hybrid cross means a cross which considers two character(eg seed colour and seed shape) and the genotype of that cross for eg is represented by YYRR.
+			<br/> <b> Monohybrid cross or di-hybrid cross. </b> So a di-hybrid cross means a cross which considers two character(eg seed colour and seed shape) and the genotype of that cross for eg is represented by YYRR.
 				If I want to write genotype of di-hybrid cross both dominant, I will write it as YYRR and di-hybrid cross both recessive as yyrr. <br/>  
-			<br/> Dominant or recessive characters. One gene in a dominant allele can express a dominant character. Eg in pea plant yellow colour of seed is a dominant character so it can be expressed by either YY or Yy.
+			<br/> <b> Dominant or recessive characters. </b> One gene in a dominant allele can express a dominant character. Eg in pea plant yellow colour of seed is a dominant character so it can be expressed by either YY or Yy.
 				But a recessive character is expressed only when both the alleles are recessive (eg in case of pea plant green colour of seed colour is recessive so for its expression yy should be present). <br/>  
-			<br/> F1 or F2 or F3 generation.
-			<br/> Homozygote or heterozygote
-			<br/> Mendel’s laws Law of dominance (Characters are controlled by discrete units called factors.Factors occur in pairs (allele).In a dissimilar pair of factors one member of the pair dominates (dominant) the other (recessive).
-				The law of dominance is used to explain the expression of only one of the parental characters in a monohybrid cross in the F1 and the expression of both in the F2.),
-				Law of segregation (Segregate means (set apart from the rest or from each other).Though the parents contain two alleles, during gamete formation the factors or alleles of a pair segregate from each other such that a gamete receives only one of the two factors.
-				A homozygous parent produces all gametes that are similar while a heterozygous one produces two kinds of gametes each having one allele with equal proportion.), 
-				Law of independent assortment (The law states that when two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair of characters. 
+			<br/> <b> Mendel laws </b> <br/> <br/> <b> Law of dominance </b> (Characters are controlled by discrete units called factors.Factors occur in pairs (allele).In a dissimilar pair of factors one member of the pair dominates (dominant) the other (recessive).
+				The law of dominance is used to explain the expression of only one of the parental characters in a monohybrid cross in the F1 and the expression of both in the F2.). <br/>
+				<br/> <b> Law of segregation </b> (Segregate means (set apart from the rest or from each other).Though the parents contain two alleles, during gamete formation the factors or alleles of a pair segregate from each other such that a gamete receives only one of the two factors.
+				A homozygous parent produces all gametes that are similar while a heterozygous one produces two kinds of gametes each having one allele with equal proportion.). <br/>
+				<br/> <b> Law of independent assortment </b> (The law states that when two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair of characters. 
 				Eg-inheritance of one character (seed colour) is not dependent on inheritance of other character (seed shape)) <br/> </p>
 		</div>
 		
@@ -153,11 +151,47 @@
 			Question -  
 			<br/>
 			What was the ratio of genotypes of plants at the beginning? Give an explanation with experimental setup of how it might have 			happened. You are required to test hypothesis in the following format (Lawson's flowchart) </p>
+<br>
+<br>
+
 	    </div>
 	    
-	    <div id="menu4" class="tab-pane fade">
+	     <div id="menu4" class="tab-pane fade">
 	      	<h3>Experiment Design</h3>
-	      	<p> </p>
+			<h4>Select one possible hypothesis:</h4>
+	      	<p> 
+				<input type="radio" name="HypothesisSelected" value="Ratio of genotypes of plant at the beginning is 70% Heterozygous dominant (TtYy): 30% Heterozygous (Ttyy)" checked> Ratio of genotypes of plant at the beginning is 70% Heterozygous dominant (TtYy): 30% Heterozygous (Ttyy)<br>
+				<input type="radio" name="HypothesisSelected" value="Ratio of genotypes of plant at the beginning is 50% Homozygous dominant (TTYY): 50% Heterozygous (Ttyy)"> Ratio of genotypes of plant at the beginning is 50% Homozygous dominant (TTYY): 50% Heterozygous (Ttyy)<br>
+				<input type="radio" name="HypothesisSelected" value="Ratio of genotypes of plant at the beginning is 60% Homozygous dominant (TTYY): 40% Homozygous (ttyy)"> Ratio of genotypes of plant at the beginning is 60% Homozygous dominant (TTYY): 40% Homozygous (ttyy)
+  
+			</p>
+			<br/><br/>
+			<h4>Design of Experiment:</h4>
+			<p>
+				Instruction: State assumptions, variables <br/><br/>
+				Assumption: <input type="text" name="Assumption">
+			</p>
+			<br/><br/>
+			<div class="dropdown">
+				<a href="#" data-toggle="tooltip" data-placement="top" title="The variable that the researcher manipulates">Independent variable (IV):</a>
+				<select id="IV_Value">
+					<option value="Initial ratio of genotypes">Initial ratio of genotypes</option>
+					<option value="Final ratio of genotypes">Final ratio of genotypes</option>
+					<option value="Genotypes">Genotypes</option>
+				</select>
+				
+				<br/><br/>
+				<a href="#" data-toggle="tooltip" data-placement="top" title="The variable that undergoes change due to the experiment">Dependent variable (DV):</a>
+				
+				<select id="IV_Value">
+					<option value="Initial ratio of Phenoypes">Initial ratio of genotypes</option>
+					<option value="Final ratio of Phenotypes">Final ratio of genotypes</option>
+					<option value="Genotypes">Phenotypes</option>
+				</select>
+				<br/><br/>
+				<a data-toggle="tab" href="#menu5"><button type="button" class="btn btn-primary">Submit</button></a> 
+				
+			</div>
 	    </div>
 	    
 	    <div id="menu5" class="tab-pane fade">
