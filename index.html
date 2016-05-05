@@ -30,9 +30,9 @@
 	    <li><a data-toggle="tab" href="#menu2">Programming</a></li>
 	    <li><a data-toggle="tab" href="#menu3">Focus-Q</a></li>
 	    <li><a data-toggle="tab" href="#menu4">Experiment Design</a></li>
-	    <li><a data-toggle="tab" href="#menu5">Model</a></li>
+	    <li id="model_tab"><a data-toggle="tab" href="#menu5">Model</a></li>
 	    <li><a data-toggle="tab" href="#menu6">Build</a></li>
-	    <li><a data-toggle="tab" href="#menu7">Run and Compare</a></li>
+	    <li onclick="javascript:$('.feedback').hide();"><a data-toggle="tab" href="#menu7">Run and Compare</a></li>
 	</ul>
 
 	<div class="tab-content">
@@ -306,13 +306,13 @@
 				<br/><br/>
 				<a href="#" data-toggle="tooltip" data-placement="top" title="The variable that undergoes change due to the experiment">Dependent variable (DV):</a>
 				
-				<select id="IV_Value">
+				<select id="DV_Value">
 					<option value="Initial ratio of Phenoypes">Initial ratio of genotypes</option>
 					<option value="Final ratio of Phenotypes">Final ratio of genotypes</option>
 					<option value="Genotypes">Phenotypes</option>
 				</select>
 				<br/><br/>
-				<a data-toggle="tab" href="#menu5"><button type="button" class="btn btn-primary">Submit</button></a> 
+				<a data-toggle="tab" href="#menu5"><button type="button" class="btn btn-primary tab-toggle">Submit</button></a> 
 				
 			</div>
 	    </div>
@@ -412,6 +412,59 @@
 	   <input type="hidden" id="phenotype2" value="0"/>
 	   <input type="hidden" id="phenotype3" value="0"/>
 	   <input type="hidden" id="phenotype4" value="0"/>
+	   <div id="feedback">
+		<table>
+		<tr>
+		<td>
+		<div class=feedback" id="gyanu" style="display:none;">
+		<figure>
+		    <img src="image/MrGyanu.jpg" style="width: 150px;"/>
+		    <figcaption>Mr GYAANU<br></figcaption>
+		</figure>
+		</div>
+		</td>
+		<td>
+		<div class="feedback" id="initial_summary" style="display:none;">
+			Hypothesis - <label id="hypothesis_summary"></label><br>
+			Planned Test - <label id="test_summary"></label><br>
+			Actual Experiment Outcome - <label id="actual_experiment_summary"></label><br>
+			Your Experiment Outcome - <label id="your_experiment_summary"></label><br>
+			Do both the outcomes match?<br>
+	<button type="button" class="btn btn-primary tab-toggle" onclick="javascript:checkOutcomes('yes');">Yes</button>
+		<input type="button" value="no" onclick="javascript:checkOutcomes('no');" class="btn btn-primary" />
+		</div>
+		<div class="feedback" id="plantPropertiesFeedback" style="display:none;">
+		You have chosen the genotype of Plant A as <label id="PlantA_genotype_label"></label><br>
+		You have chosen the genotype of Plant B as <label id="PlantB_genotype_label"></label><br>
+		You have chosen number of generations as <label id="noOfGenerations_label"></label><br>
+		Do you want to revise your experiment design?
+		<a data-toggle="tab" href="#menu5"><button type="button" class="btn btn-primary tab-toggle" onclick="javascript:$('li').removeClass('active');$('#model_tab').addClass('active');">Yes</button></a> 
+		<input type="button" value="no" onclick="revisePlantNumbers();" class="btn btn-primary" />
+		</div>
+		<div class="feedback" id="plantNumbersFeedback" style="display:none;">
+		You have chosen the number of Plant A as <label id="PlantA_no_label"></label><br>
+		You have chosen the genotype of Plant B as <label id="PlantB_no_label"></label><br>
+		Do you want to revise these numbers?
+		<a data-toggle="tab" href="#menu5"><button type="button" class="btn btn-primary tab-toggle" onclick="javascript:$('li').removeClass('active');$('#model_tab').addClass('active');">Yes</button></a> 
+		<input type="button" value="no" onclick="reviseVariablesFeedback();" class="btn btn-primary">
+		</div>
+		<div class="feedback" id="variablesFeedback" style="display:none;">
+		You have chosen the dependent variable as <label id="dv_label"></label><br>
+		You have chosen the independent variable as <label id="iv_label"></label><br>
+		Do you want to revise these variables?
+		<a data-toggle="tab" href="#menu4"><button type="button" class="btn btn-primary tab-toggle" onclick="javascript:$('li').removeClass('active');$('#model_tab').addClass('active');">Yes</button></a> 
+		<input type="button" value="no" onclick="reviseHypothesisFeedback();" class="btn btn-primary">
+		</div>
+		<div class="feedback" id="hypothesisFeedback" style="display:none;">
+		You have chosen the hypothesis as <label id="hypothesis_label"></label><br>
+		Do you want to revise the hypothesis?
+		<a data-toggle="tab" href="#menu4"><button type="button" class="btn btn-primary tab-toggle" onclick="javascript:$('li').removeClass('active');$('#model_tab').addClass('active');">Yes</button></a> 
+		<input type="button" value="no" onclick="" class="btn btn-primary">
+		</div>
+		</td>
+		</tr>
+		</table>
+	   </div>
   	</div>
 
 </div>

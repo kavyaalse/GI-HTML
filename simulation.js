@@ -2,7 +2,9 @@
 var r=""; // String for rules selected
 var genotypeNos;
 var agentA,agentB;
-
+var agentEA,agentEB;
+var studentModel,expertModel;
+var expOutcome;
 function Property(property,value){
 	this.property=property;
 	this.value=value;
@@ -72,7 +74,7 @@ function setRules(){
 }
 
 function calculateRatio(agent){
-	n=2;
+	var n=parseInt($("#noOfGeneration").val());
 	for(i=0;i<n;i++){
 	var break_flag=0;
 		for(var genotype in agent.crossStack) { 
@@ -192,10 +194,10 @@ function calculatePhenotypeNos(agent){
 }
 
 function calculateTotalPhenotype(){
-	$("#phenotype1").val(parseFloat(agentA.phenotypeNos[0]+agentB.phenotypeNos[0]));
-	$("#phenotype2").val(parseFloat(agentA.phenotypeNos[1]+agentB.phenotypeNos[1]));
-	$("#phenotype3").val(parseFloat(agentA.phenotypeNos[2]+agentB.phenotypeNos[2]));
-	$("#phenotype4").val(parseFloat(agentA.phenotypeNos[3]+agentB.phenotypeNos[3]));
+	$("#phenotype1").val(parseInt(agentA.phenotypeNos[0]+agentB.phenotypeNos[0]));
+	$("#phenotype2").val(parseInt(agentA.phenotypeNos[1]+agentB.phenotypeNos[1]));
+	$("#phenotype3").val(parseInt(agentA.phenotypeNos[2]+agentB.phenotypeNos[2]));
+	$("#phenotype4").val(parseInt(agentA.phenotypeNos[3]+agentB.phenotypeNos[3]));
 
 	//alert("Tall Yellow =" + parseFloat(agentA.phenotypeNos[0]+agentB.phenotypeNos[0]));
 	//alert("Tall Green =" + parseFloat(agentA.phenotypeNos[1]+agentB.phenotypeNos[1]));
@@ -203,6 +205,7 @@ function calculateTotalPhenotype(){
 	//alert("Short Green =" + parseFloat(agentA.phenotypeNos[3]+agentB.phenotypeNos[3]));
 }
 function runExperiment(){
+	$(".feedback").hide();
 	initialiseAgents();
 	setRules();
 	//Calculate Ratio
@@ -213,5 +216,109 @@ function runExperiment(){
 	calculatePhenotypeNos(agentA);
 	calculatePhenotypeNos(agentB);
 	calculateTotalPhenotype();
+	studentModel=generateStudentModel();
+	expertModel=generateExpertModel();
+	generateFeedback();
 }
 
+
+function Model(hypothesis,iv,dv,noOfGenerations,agentA,agentB){
+	this.hypothesis;
+	this.iv;
+	this.dv;
+	this.noOfGenerations;
+	this.agents=new Array();
+	this.agents.push(agentA);
+	this.agents.push(agentB);
+}
+
+function generateStudentModel(){
+	return new Model($("HypothesisSelected").val(),$("#IV_Value").val(),$("#DV_Value").val(),parseInt($("#noOfGeneration").val()),agentA,agentB);
+}
+
+
+function generateExpertModel(){
+	var hypothesis="Ratio of genotypes of plant at the beginning is 50% Homozygous dominant (TTYY): 50% Heterozygous (Ttyy)";
+	var iv="Initial ratio of genotypes";
+	var dv="Final ratio of Phenotypes";
+	var noOfGenerations=2;
+	agentEA = new Agent(new Array());
+	var plantHeight= new Property("plantHeight","TT");
+	var seedColor = new Property("seedColor","YY");
+	agentEA.addProperty(plantHeight);
+	agentEA.addProperty(seedColor);
+	agentEA.number=50;
+	//initialiseGenotypeNos(agentEB);
+	//Initialise Agent B
+	agentEB = new Agent(new Array());
+	plantHeight= new Property("plantHeight","Tt");
+	seedColor = new Property("seedColor","Yy");
+	agentEB.addProperty(plantHeight);
+	agentEB.addProperty(seedColor);
+	agentEB.number=50;
+	//initialiseGenotypeNos(agentEB);
+	return new Model(hypothesis,iv,dv,noOfGenerations,agentEA,agentEB);
+}
+
+function generateFeedback(){
+	$("#hypothesis_summary").show();
+	$("#hypothesis_summary").html($("input[name='HypothesisSelected']:checked").val());
+	var html="Dependant Variable is "+$("#DV_Value").val();
+	html+="<br>Independant Variable is ";
+	html+=$("#IV_Value").val();
+	$("#test_summary").html(html);
+	$("#actual_experiment_summary").html("3 out of 100 plant are short and green");
+	$("#your_experiment_summary").html($("#phenotype4").val()+" out of 100 plants are short and green");
+	$("#initial_summary").show();
+
+}
+
+function checkOutcomes(option){
+	if(option=="yes" && $("#phenotype4").val()=="3"){// Yes and correct option
+		alert("Well Done!! You have successfully completed this activity");
+	}
+	if($("#phenotype4").val()!="3" && option=="yes") {// No and correct option
+		alert("Oops, Sorry it doesn't match. Talk to Mr. Gyaanu. He can help you");
+		loadMrGyanu();
+		revisePlantProperties();
+	}
+	if($("#phenotype4").val()!="3" && option=="no"){
+		loadMrGyanu();
+		revisePlantProperties();
+	}
+
+}
+
+function loadMrGyanu(){
+	$("#gyanu").show();
+
+}
+function revisePlantProperties(){
+	$(".feedback").hide();
+	$("#plantPropertiesFeedback").show();
+	$("#PlantA_genotype_label").html(agentA.genotype);
+	$("#PlantB_genotype_label").html(agentB.genotype);
+	$("#noOfGenerations_label").html($("#noOfGeneration").val());
+}
+
+function revisePlantNumbers(){
+	$("#plantPropertiesFeedback").hide();
+	$("#plantNumbersFeedback").show();
+	$("#PlantA_no_label").html(agentA.number);
+	$("#PlantB_no_label").html(agentB.number);
+}
+
+function reviseVariablesFeedback(){
+	$("#plantNumbersFeedback").hide();
+	$("#variablesFeedback").show();
+	$("#dv_label").html($("#DV_Value").val());
+	$("#iv_label").html($("#IV_Value").val());
+
+}
+
+function reviseHypothesisFeedback(){
+	$("#variablesFeedback").hide();
+	$("#hypothesisFeedback").show();
+	$("#hypothesis_label").html($("input[name='HypothesisSelected']:checked").val());
+
+}
