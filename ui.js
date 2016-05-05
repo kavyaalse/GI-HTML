@@ -1,5 +1,4 @@
 //This file will have the UI related js functions
-
 var agentA = {
   name: "Plant A",
   properties : [
@@ -52,6 +51,12 @@ var agentB = {
 
 var rules = ["When TTYY do tall, green", "When ttyy do short, yellow", "When TtYy do 9, 3, 3, 1 "]
 $( document ).ready(function() {
+
+    $("#menu4").css('visibility','hidden');
+    $("#menu5").css('visibility','hidden');
+    $("#menu6").css('visibility','hidden');
+    /*$("#menu7").css('visibility','hidden');*/
+
 
     $( "#addAgentButton" ).click(function() {
         $( "#addAgentDialog" ).html("<fieldset><input type=\"checkbox\" name=\"selectAgent\" id=\"selectedAgentA\" value=\"plantA\" /> Plant A <br /><input type=\"checkbox\" name=\"selectAgent\" id=\"selectedAgentB\" value=\"plantB\" /> Plant B <br /> </fieldset>");
@@ -118,6 +123,7 @@ $( document ).ready(function() {
                 }
         });
         $( "#addAgentDialog" ).dialog(open);
+        $('[data-toggle="tooltip"]').tooltip(); 
     });
 
     //If a property is selected, allow for the values to be put in. This function has to be automated yet.
@@ -171,10 +177,10 @@ $( document ).ready(function() {
             
             $("#addRuleDialog").html( $('<input />', { type: 'checkbox', id: 'rule1', value: 'rule1'}));
             $("#addRuleDialog").append( $('<label />', { for: 'rule1' , text:rules[0] }));
-            $("#addRuleDialog").append("<br/");
+            $("#addRuleDialog").append("<br/>");
             $("#addRuleDialog").append( $('<input />', { type: 'checkbox', id: 'rule2', value: 'rule2'}));
             $("#addRuleDialog").append( $('<label />', { for: 'rule2' , text:rules[1] }));
-            $("#addRuleDialog").append("<br/");
+            $("#addRuleDialog").append("<br/>");
             $("#addRuleDialog").append( $('<input />', { type: 'checkbox', id: 'rule3', value: 'rule3'}));
             $("#addRuleDialog").append( $('<label />', { for: 'rule3' , text:rules[2] }));
             $("#addRuleDialog").dialog({
@@ -187,7 +193,21 @@ $( document ).ready(function() {
                         text: "OK",
                         click: function() {
                             //
+                            var temp_text = "Here is the list of rules you have selected: <br/>"
                             $( this ).dialog( "close" );
+                            if ($("#rule1").is(':checked')){
+                                temp_text += rules[0];
+                                temp_text += "<br/>";
+                            }
+                            if ($("#rule2").is(':checked')){
+                                temp_text += rules[1];
+                                temp_text += "<br/>";
+                            }
+                            if ($("#rule3").is(':checked')){
+                                temp_text += rules[2];
+                                temp_text += "<br/>";
+                            }
+                            $("#ruleDisplaySpace").html(temp_text);
                         }
                     }
                 ],
@@ -204,6 +224,7 @@ $( document ).ready(function() {
             $( "#addRuleDialog" ).dialog(open);          
             console.log (" again");
        });
+
 
 //document.ready closes after this
 });
