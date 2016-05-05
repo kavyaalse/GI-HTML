@@ -3,21 +3,24 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="jquery-ui.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.js"></script>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="ui.js"></script>
   <script src="simulation.js"></script>
   <style type="text/css">
-  #menu5 {
+  .container {
   	padding-left: 12%;
   	padding-right: 12%;
   }
   .col-sm-6 {
   	border: 1px;
   	border-color: #000;
+  }
+
+  #menu4list, #menu5list, #menu6list, #menu7list {
+  	cursor: not-allowed;
   }
   </style>
 </head>
@@ -26,13 +29,13 @@
 <div class="container">
 	<ul class="nav nav-tabs">
 	    <li class="active"><a data-toggle="tab" href="#home">HDR</a></li>
-	    <li><a data-toggle="tab" href="#menu1">Domain </a></li>
-	    <li><a data-toggle="tab" href="#menu2">Programming</a></li>
-	    <li><a data-toggle="tab" href="#menu3">Focus-Q</a></li>
-	    <li><a data-toggle="tab" href="#menu4">Experiment Design</a></li>
-	    <li><a data-toggle="tab" href="#menu5">Model</a></li>
-	    <li><a data-toggle="tab" href="#menu6">Build</a></li>
-	    <li><a data-toggle="tab" href="#menu7">Run and Compare</a></li>
+	    <li><a data-toggle="tab" id="menu1list" href="#menu1">Domain </a></li>
+	    <li><a data-toggle="tab" id="menu2list" href="#menu2">Programming</a></li>
+	    <li><a data-toggle="tab" id="menu3list" href="#menu3">Focus-Q</a></li>
+	    <li><a data-toggle="tab" id="menu4list" href="#menu4">Experiment Design</a></li>
+	    <li><a data-toggle="tab" id="menu5list" href="#menu5">Model</a></li>
+	    <li><a data-toggle="tab" id="menu6list" href="#menu6">Build</a></li>
+	    <li><a data-toggle="tab" id="menu7list" href="#menu7">Run and Compare</a></li>
 	</ul>
 
 	<div class="tab-content">
@@ -52,23 +55,21 @@
 	   
 	    <div id="menu1" class="tab-pane fade">
 	      <h3>Genetics</h3>
-	      <p>Pattern of inheritance: Autosomal or sex or cytoplasmic inheritance <br/>  
-			<br/> Genotype and phenotype. Phenotype- External appearance also known as character eg: seed colour. Generally seed colour of a pea plant are of two types yellow seed colour and green seed colour. 
+	      <p style="text-align:justify;"> <b> Pattern of inheritance: Autosomal or sex or cytoplasmic inheritance </b> <br/>  
+			<br/> <b> Genotype and phenotype.</b> Phenotype- External appearance also known as character eg: seed colour. Generally seed colour of a pea plant are of two types yellow seed colour and green seed colour. 
 				Genotype-Genetic composition eg: Yy.For every genotype there is a set of chromosome responsible for it, these pairs of chromosomes are known as allele.eg Yy
 				In a pair of allele, one is dominant and is represented by capital letter eg Y and the recessive character is represented by small letter y.
 				Heterozygote  (hetero-different) alleles means different one dominant and one recessive allele (Yy)
 				Homozygote (homo-same) allele can be either both dominant  (eg: YY) or both recessive (eg: yy) <br/> 
-			<br/> Monohybrid cross or di-hybrid cross.So a di-hybrid cross means a cross which considers two character(eg seed colour and seed shape) and the genotype of that cross for eg is represented by YYRR.
+			<br/> <b> Monohybrid cross or di-hybrid cross. </b> So a di-hybrid cross means a cross which considers two character(eg seed colour and seed shape) and the genotype of that cross for eg is represented by YYRR.
 				If I want to write genotype of di-hybrid cross both dominant, I will write it as YYRR and di-hybrid cross both recessive as yyrr. <br/>  
-			<br/> Dominant or recessive characters. One gene in a dominant allele can express a dominant character. Eg in pea plant yellow colour of seed is a dominant character so it can be expressed by either YY or Yy.
+			<br/> <b> Dominant or recessive characters. </b> One gene in a dominant allele can express a dominant character. Eg in pea plant yellow colour of seed is a dominant character so it can be expressed by either YY or Yy.
 				But a recessive character is expressed only when both the alleles are recessive (eg in case of pea plant green colour of seed colour is recessive so for its expression yy should be present). <br/>  
-			<br/> F1 or F2 or F3 generation.
-			<br/> Homozygote or heterozygote
-			<br/> Mendel’s laws Law of dominance (Characters are controlled by discrete units called factors.Factors occur in pairs (allele).In a dissimilar pair of factors one member of the pair dominates (dominant) the other (recessive).
-				The law of dominance is used to explain the expression of only one of the parental characters in a monohybrid cross in the F1 and the expression of both in the F2.),
-				Law of segregation (Segregate means (set apart from the rest or from each other).Though the parents contain two alleles, during gamete formation the factors or alleles of a pair segregate from each other such that a gamete receives only one of the two factors.
-				A homozygous parent produces all gametes that are similar while a heterozygous one produces two kinds of gametes each having one allele with equal proportion.), 
-				Law of independent assortment (The law states that when two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair of characters. 
+			<br/> <b> Mendel laws </b> <br/> <br/> <b> Law of dominance </b> (Characters are controlled by discrete units called factors.Factors occur in pairs (allele).In a dissimilar pair of factors one member of the pair dominates (dominant) the other (recessive).
+				The law of dominance is used to explain the expression of only one of the parental characters in a monohybrid cross in the F1 and the expression of both in the F2.). <br/>
+				<br/> <b> Law of segregation </b> (Segregate means (set apart from the rest or from each other).Though the parents contain two alleles, during gamete formation the factors or alleles of a pair segregate from each other such that a gamete receives only one of the two factors.
+				A homozygous parent produces all gametes that are similar while a heterozygous one produces two kinds of gametes each having one allele with equal proportion.). <br/>
+				<br/> <b> Law of independent assortment </b> (The law states that when two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair of characters. 
 				Eg-inheritance of one character (seed colour) is not dependent on inheritance of other character (seed shape)) <br/> </p>
 		</div>
 		
@@ -154,16 +155,203 @@
 			Question -  
 			<br/>
 			What was the ratio of genotypes of plants at the beginning? Give an explanation with experimental setup of how it might have 			happened. You are required to test hypothesis in the following format (Lawson's flowchart) </p>
+<br>
+<br>
+
+<script>
+	function displayFeed(mcqi, correctness, msg, nextmcq){
+		if(correctness=='1')
+			{
+			document.getElementById(mcqi).style.display="";
+			document.getElementById(mcqi).innerHTML="Wow! Its Correct! ".concat(msg);
+			}
+		else
+		{
+			document.getElementById(mcqi).style.display="";
+			document.getElementById(mcqi).innerHTML="Oh! Its Incorrect! ".concat(msg);
+		
+		}
+
+		
+		if (mcqi == 'mcq11') {
+			alert ("Since you have attempted all the questions, you can try designing an experiment for this problem.");
+			$("#menu4list").css('cursor', 'auto');
+			$("#menu4").css('visibility','visible');
+			
+		}
+		else
+		{
+			//window.alert("JSR!");
+			
+			document.getElementById(nextmcq.concat("1")).disabled=false;
+			document.getElementById(nextmcq.concat("2")).disabled=false;
+			document.getElementById(nextmcq.concat("3")).disabled=false;
+			document.getElementById(nextmcq.concat("4")).disabled=false;
+		}
+
+	}
+</script>	
+
+<h3>Genetics Quiz </h3>
+
+<P>1. Which is them is homozygous? <BR>
+<input type="radio" name="mcq1" value="TTYY" onclick="displayFeed('mcq1','1','Homozygote (homo-same) allele can be either both dominant (eg: YY) or both recessive (eg: yy).','mcq2')">TTYY<BR>
+<input type="radio" name="mcq1" value="ttYy" onclick="displayFeed('mcq1','0','The correct answer is TTYY. Homozygote (homo-same) allele can be either both dominant (eg: YY) or both recessive (eg: yy).','mcq2')">ttYy<BR>
+<input type="radio" name="mcq1" value="TtYy" onclick="displayFeed('mcq1','0','The correct answer is TTYY. Homozygote (homo-same) allele can be either both dominant (eg: YY) or both recessive (eg: yy).','mcq2')">TtYy<BR>
+<input type="radio" name="mcq1" value="Ttyy" onclick="displayFeed('mcq1','0','The correct answer is TTYY. Homozygote (homo-same) allele can be either both dominant (eg: YY) or both recessive (eg: yy).','mcq2')">Ttyy<BR>
+<b id="mcq1" style="color:blue;display:none;">  </b>
+</p>
+
+<P>2. Which is them is heterozygous? <BR>
+<input type="radio" id="mcq21" name="mcq2" value="TTYY" disabled onclick="displayFeed('mcq2','0','The correct answer is TtYy.Heterozygote (hetero-different) alleles means different one dominant and one recessive allele (Yy).','mcq3')">TTYY<BR>
+<input type="radio" id="mcq22" name="mcq2" value="ttYy" disabled onclick="displayFeed('mcq2','0','The correct answer is TtYy.Heterozygote (hetero-different) alleles means different one dominant and one recessive allele (Yy).','mcq3')">ttYy<BR>
+<input type="radio" id="mcq23" name="mcq2" value="TtYy" disabled onclick="displayFeed('mcq2','1','Heterozygote (hetero-different) alleles means different one dominant and one recessive allele (Yy).','mcq3')">TtYy<BR>
+<input type="radio" id="mcq24" name="mcq2" value="Ttyy" disabled onclick="displayFeed('mcq2','0','The correct answer is TtYy.Heterozygote (hetero-different) alleles means different one dominant and one recessive allele (Yy).','mcq3')">Ttyy<BR>
+<b id="mcq2" style="color:blue;display:none;">  </b>
+</p>
+
+<P>3. Which of them is Heterozygous dominant? <BR>
+<input type="radio" id="mcq31" name="mcq3" value="TTYY" disabled onclick="displayFeed('mcq3','0','The correct answer is TtYy.Heterozygote (hetero-different) alleles means different one dominant and one recessive allele (Yy).','mcq4')">TTYY<BR>
+<input type="radio" id="mcq32" name="mcq3" value="ttYy" disabled onclick="displayFeed('mcq3','0','The correct answer is TtYy.Heterozygote (hetero-different) alleles means different one dominant and one recessive allele (Yy).','mcq4')">ttYy<BR>
+<input type="radio" id="mcq33" name="mcq3" value="TtYy" disabled onclick="displayFeed('mcq3','1','Heterozygote (hetero-different) alleles means different one dominant and one recessive allele (Yy).','mcq4')">TtYy<BR>
+<input type="radio" id="mcq34" name="mcq3" value="Ttyy" disabled onclick="displayFeed('mcq3','0','The correct answer is TtYy.Heterozygote (hetero-different) alleles means different one dominant and one recessive allele (Yy).','mcq4')">Ttyy<BR>
+<b id="mcq3" style="color:blue;display:none;">  </b>
+</p>
+
+
+<P>4. Which of them is Homozygous recessive? <BR>
+<input type="radio" id="mcq41" name="mcq4" value="TTYY" disabled onclick="displayFeed('mcq4','0','The correct answer is ttty.Homozygote (homo-same) allele can be either both dominant (eg: YY) or both recessive (eg: yy) .','mcq5')">TTYY<BR>
+<input type="radio" id="mcq42" name="mcq4" value="ttyy" disabled onclick="displayFeed('mcq4','1','Homozygote (homo-same) allele can be either both dominant (eg: YY) or both recessive (eg: yy) .','mcq5')">ttyy<BR>
+<input type="radio" id="mcq43" name="mcq4" value="TtYy" disabled onclick="displayFeed('mcq4','0','The correct answer is ttty.Homozygote (homo-same) allele can be either both dominant (eg: YY) or both recessive (eg: yy).','mcq5')">TtYy<BR>
+<input type="radio" id="mcq44" name="mcq4" value="Ttyy" disabled onclick="displayFeed('mcq4','0','The correct answer is ttty.Homozygote (homo-same) allele can be either both dominant (eg: YY) or both recessive (eg: yy).','mcq5')">Ttyy<BR>
+<b id="mcq4" style="color:blue;display:none;">  </b>
+</p>
+
+
+<P>5. What is a dominant character in case of height of pea plant? <BR>
+<input type="radio" id="mcq51" name="mcq5" value="Tall" disabled onclick="displayFeed('mcq5','1','.','mcq6')">Tall<BR>
+<input type="radio" id="mcq52" name="mcq5" value="Short" disabled onclick="displayFeed('mcq5','0','The correct answer is Tall.','mcq6')">Short<BR>
+<input type="radio" id="mcq53" name="mcq5" value="Long" disabled onclick="displayFeed('mcq5','0','The correct answer is Tall.','mcq6')">Long<BR>
+<input type="radio" id="mcq54" name="mcq5" value="tt" disabled onclick="displayFeed('mcq5','0','The correct answer is Tall.','mcq6')">tt<BR>
+<b id="mcq5" style="color:blue;display:none;">  </b>
+</p>
+
+
+<P>6. What is dominant in case of colour of pea pod? <BR>
+<input type="radio" id="mcq61" name="mcq6" value="Yellow" disabled onclick="displayFeed('mcq6','1','.','mcq7')">Yellow<BR>
+<input type="radio" id="mcq62" name="mcq6" value="Green" disabled onclick="displayFeed('mcq6','0','The correct answer is Yellow.','mcq7')">Green<BR>
+<input type="radio" id="mcq63" name="mcq6" value="Red" disabled onclick="displayFeed('mcq6','0','The correct answer is Yellow.','mcq7')">Red<BR>
+<input type="radio" id="mcq64" name="mcq6" value="Blue" disabled onclick="displayFeed('mcq6','0','The correct answer is Yellow.','mcq7')">Blue<BR>
+<b id="mcq6" style="color:blue;display:none;">  </b>
+</p>
+
+
+<P>7. What is phenotypic ratio of a F1 cross between dihybrid heterozygous cross? <BR>
+<input type="radio" id="mcq71" name="mcq7" value="9:3:3:1" disabled onclick="displayFeed('mcq7','1','.','mcq8')">9:3:3:1<BR>
+<input type="radio" id="mcq72" name="mcq7" value="All same" disabled onclick="displayFeed('mcq7','0','The correct answer is 9:3:3:1.','mcq8')">All same<BR>
+<input type="radio" id="mcq73" name="mcq7" value="All different" disabled onclick="displayFeed('mcq7','0','The correct answer is 9:3:3:1.','mcq8')">All different<BR>
+<input type="radio" id="mcq74" name="mcq7" value="1:1" disabled onclick="displayFeed('mcq7','0','The correct answer is 9:3:3:1.','mcq8')">1:1<BR>
+<b id="mcq7" style="color:blue;display:none;">  </b>
+</p>
+	
+<P>8. What is phenotypic ratio of a F1 cross between dihybrid homozygous cross? <BR>
+<input type="radio" id="mcq81" name="mcq8" value="9:3:3:1" disabled onclick="displayFeed('mcq8','0','The correct answer is All same.','mcq9')">9:3:3:1<BR>
+<input type="radio" id="mcq82" name="mcq8" value="All same" disabled onclick="displayFeed('mcq8','1','.','mcq9')">All same<BR>
+<input type="radio" id="mcq83" name="mcq8" value="All different" disabled onclick="displayFeed('mcq8','0','The correct answer is All same.','mcq9')">All different<BR>
+<input type="radio" id="mcq84" name="mcq8" value="1:1" disabled onclick="displayFeed('mcq8','0','The correct answer is All same.','mcq9')">1:1<BR>
+<b id="mcq8" style="color:blue;display:none;">  </b>
+</p>
+	
+<P>9. What do you mean by Law of Dominance?<BR>
+<input type="radio" id="mcq91" name="mcq9" value="The law states that characters are controlled by discrete units called factors which occur in pairs called allele.In a dissimilar pair of factors one member of the pair dominates (dominant) the other (recessive)." disabled onclick="displayFeed('mcq9','1','.','mcq10')">The law states that characters are controlled by discrete units called factors which occur in pairs called allele.In a dissimilar pair of factors one member of the pair dominates (dominant) the other (recessive).<BR>
+<input type="radio" id="mcq92" name="mcq9" value="The law states that during gamete formation the factors or alleles of a pair segregate from each other such that a gamete receives only one of the two factors. " disabled onclick="displayFeed('mcq9','0','The correct answer is The law states that characters are controlled by discrete units called factors which occur in pairs called allele.In a dissimilar pair of factors one member of the pair dominates (dominant) the other (recessive).','mcq10')">The law states that during gamete formation the factors or alleles of a pair segregate from each other such that a gamete receives only one of the two factors.<BR>
+<input type="radio" id="mcq93" name="mcq9" value="The law states that when two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair of characters. " disabled onclick="displayFeed('mcq9','0','The correct answer is The law states that characters are controlled by discrete units called factors which occur in pairs called allele.In a dissimilar pair of factors one member of the pair dominates (dominant) the other (recessive).','mcq10')">The law states that when two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair of characters. <BR>
+<input type="radio" id="mcq94" name="mcq9" value="Always dominant character appears." disabled onclick="displayFeed('mcq9','0','The correct answer is The law states that characters are controlled by discrete units called factors which occur in pairs called allele.In a dissimilar pair of factors one member of the pair dominates (dominant) the other (recessive).','mcq10')">Always dominant character appears.<BR>
+<b id="mcq9" style="color:blue;display:none;">  </b>
+</p>
+	
+<P>10. What do you mean by Law of Seggregation?<BR>
+<input type="radio" id="mcq101" name="mcq10" value="The law states that characters are controlled by discrete units called factors which occur in pairs called allele.In a dissimilar pair of factors one member of the pair dominates (dominant) the other (recessive)." disabled onclick="displayFeed('mcq10','0','The correct answer is The law states that during gamete formation the factors or alleles of a pair segregate from each other such that a gamete receives only one of the two factors.','mcq11')">The law states that characters are controlled by discrete units called factors which occur in pairs called allele.In a dissimilar pair of factors one member of the pair dominates (dominant) the other (recessive).<BR>
+<input type="radio" id="mcq102" name="mcq10" value="The law states that during gamete formation the factors or alleles of a pair segregate from each other such that a gamete receives only one of the two factors." disabled onclick="displayFeed('mcq10','1','.','mcq11')">The law states that during gamete formation the factors or alleles of a pair segregate from each other such that a gamete receives only one of the two factors.<BR>
+<input type="radio" id="mcq103" name="mcq10" value="The law states that when two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair of characters. " disabled onclick="displayFeed('mcq10','0','The correct answer is The law states that during gamete formation the factors or alleles of a pair segregate from each other such that a gamete receives only one of the two factors.','mcq11')">The law states that when two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair of characters. <BR>
+<input type="radio" id="mcq104" name="mcq10" value="Always dominant character appears." disabled onclick="displayFeed('mcq10','0','The correct answer is The law states that during gamete formation the factors or alleles of a pair segregate from each other such that a gamete receives only one of the two factors.','mcq11')">Always dominant character appears.<BR>
+<b id="mcq10" style="color:blue;display:none;">  </b>
+</p>
+
+<P>11. What do you mean by Law of Independent assortment?<BR>
+<input type="radio" id="mcq111" name="mcq11" value="The law states that characters are controlled by discrete units called factors which occur in pairs called allele.In a dissimilar pair of factors one member of the pair dominates (dominant) the other (recessive)." disabled onclick="displayFeed('mcq11','0','The correct answer is The law states that when two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair of characters.','mcq12')">The law states that characters are controlled by discrete units called factors which occur in pairs called allele.In a dissimilar pair of factors one member of the pair dominates (dominant) the other (recessive).<BR>
+<input type="radio" id="mcq112" name="mcq11" value="The law states that during gamete formation the factors or alleles of a pair segregate from each other such that a gamete receives only one of the two factors." disabled onclick="displayFeed('mcq11','0','The correct answer is The law states that when two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair of characters..','mcq12')">The law states that during gamete formation the factors or alleles of a pair segregate from each other such that a gamete receives only one of the two factors.<BR>
+<input type="radio" id="mcq113" name="mcq11" value="The law states that when two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair of characters. " disabled onclick="displayFeed('mcq11','1','.','mcq12')">The law states that when two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair of characters. <BR>
+<input type="radio" id="mcq114" name="mcq11" value="Always dominant character appears." disabled onclick="displayFeed('mcq11','0','The correct answer is The law states that when two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair of characters.','mcq12')">Always dominant character appears.<BR>
+<b id="mcq11" style="color:blue;display:none;">  </b>
+</p>
+
+<br>
+<br>
+
+
+	
+
 	    </div>
-	    
-	    <div id="menu4" class="tab-pane fade">
+
+<script type="text/javascript">
+	    function enableModelTab() {
+        alert ("Since you have attempted to design an experiment, let us see how to model this problem ");
+            $("#menu5list").css('cursor', 'auto'); 
+            $("#menu5").css('visibility','visible');
+    }
+
+</script>
+
+	     <div id="menu4" class="tab-pane fade">
 	      	<h3>Experiment Design</h3>
-	      	<p> </p>
+			<h4>Select one possible hypothesis:</h4>
+	      	<p> 
+				<input type="radio" name="HypothesisSelected" value="Ratio of genotypes of plant at the beginning is 70% Heterozygous dominant (TtYy): 30% Heterozygous (Ttyy)" checked> Ratio of genotypes of plant at the beginning is 70% Heterozygous dominant (TtYy): 30% Heterozygous (Ttyy)<br>
+				<input type="radio" name="HypothesisSelected" value="Ratio of genotypes of plant at the beginning is 50% Homozygous dominant (TTYY): 50% Heterozygous (Ttyy)"> Ratio of genotypes of plant at the beginning is 50% Homozygous dominant (TTYY): 50% Heterozygous (Ttyy)<br>
+				<input type="radio" name="HypothesisSelected" value="Ratio of genotypes of plant at the beginning is 60% Homozygous dominant (TTYY): 40% Homozygous (ttyy)"> Ratio of genotypes of plant at the beginning is 60% Homozygous dominant (TTYY): 40% Homozygous (ttyy)
+  
+			</p>
+			<br/><br/>
+			<h4>Design of Experiment:</h4>
+			<p>
+				Instruction: State assumptions, variables <br/><br/>
+				Assumption: <input type="text" name="Assumption">
+			</p>
+			<br/><br/>
+			<div class="dropdown">
+				<a href="#" data-toggle="tooltip" data-placement="top" title="The variable that the researcher manipulates">Independent variable (IV):</a>
+				<select id="IV_Value">
+					<option value="Initial ratio of genotypes">Initial ratio of genotypes</option>
+					<option value="Final ratio of genotypes">Final ratio of genotypes</option>
+					<option value="Genotypes">Genotypes</option>
+				</select>
+				
+				<br/><br/>
+				<a href="#" data-toggle="tooltip" data-placement="top" title="The variable that undergoes change due to the experiment">Dependent variable (DV):</a>
+				
+				<select id="IV_Value" onchange="enableModelTab()">
+					<option value="Initial ratio of Phenoypes">Initial ratio of genotypes</option>
+					<option value="Final ratio of Phenotypes">Final ratio of genotypes</option>
+					<option value="Genotypes">Phenotypes</option>
+				</select>
+				<br/><br/>
+				<!-- <a data-toggle="tab" href="#menu5"><button type="button" class="btn btn-primary" >Submit</button></a> 
+				 -->
+			</div>
 	    </div>
-	    
+
+	    </script>
+		 <script type="text/javascript">
+		    function enableBuildTab() {
+		        alert ("Since you have attempted to model, the next step is to add rules of calculation ");
+		            $("#menu6list").css('cursor', 'auto');
+            		$("#menu6").css('visibility','visible');  
+	    	}
+	    </script>
 	    <div id="menu5" class="tab-pane fade">
 		    
-			    	<br/>
+			<br/>
 	    	<label> 
 		    	Agent <button type="button" class="btn btn-primary" id="addAgentButton"> + </button> 
 			</label>
@@ -178,21 +366,30 @@
 			    	<div id="environmentSpace"> 
 			    		<p> Specify the environment variables here: </p>
 			    		<label> Number of generations : </label> <input type="number" id="noOfGeneration" name="noOfGeneration" width='60px' />  <br/>
-			    		 <label> Type of cross: </label> <select> <option>None</option><option :selected>Self</option> <option>Inter-cross</option></select>
+			    		 <label> Type of cross: </label> <select onchange="enableBuildTab()"> <option>None</option><option :selected>Self</option> <option>Inter-cross</option></select>
 			    	</div>
 			    </div>
 			 </div>
-
+		<!-- menu5 - Model ends after this -->
 	    </div>
 	    
+	   <!--<script type="text/javascript">
+		    function enableRunTab() {
+		        alert ("Now let us see the result of your experiment.");
+		            $("#menu7list").css('cursor', 'auto');
+            		$("#menu7").css('visibility','visible');  
+	    	}
+	    </script>-->
+
 	    <div id="menu6" class="tab-pane fade">
 		    <h3>Build</h3>
 		    <label> 
-		    	Add rules <button type="button" class="btn btn-primary" id="addRuleButton"> + </button> 
+		    	Add rules <button type="button" class="btn btn-primary" id="addRuleButton" onchange="enableRunTab()"> + </button> 
 			</label>
 			<div id="addRuleDialog"> </div>
+			<div id="ruleDisplaySpace" > </div>
 		
-	    //menu6 - Build ends fter this
+	    <!-- menu6 - Build ends after this -->
 	    </div>
 	    
 	    <div id="menu7" class="tab-pane fade">
