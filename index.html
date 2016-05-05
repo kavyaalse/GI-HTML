@@ -6,18 +6,21 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.js"></script>
-  <script src="simulation.js"></script>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="ui.js"></script>
   <script src="simulation.js"></script>
   <style type="text/css">
-  #menu5 {
+  .container {
   	padding-left: 12%;
   	padding-right: 12%;
   }
   .col-sm-6 {
   	border: 1px;
   	border-color: #000;
+  }
+
+  #menu4list, #menu5list, #menu6list, #menu7list {
+  	cursor: not-allowed;
   }
   </style>
 </head>
@@ -26,13 +29,13 @@
 <div class="container">
 	<ul class="nav nav-tabs">
 	    <li class="active"><a data-toggle="tab" href="#home">HDR</a></li>
-	    <li><a data-toggle="tab" href="#menu1">Domain </a></li>
-	    <li><a data-toggle="tab" href="#menu2">Programming</a></li>
-	    <li><a data-toggle="tab" href="#menu3">Focus-Q</a></li>
-	    <li><a data-toggle="tab" href="#menu4">Experiment Design</a></li>
-	    <li id="model_tab"><a data-toggle="tab" href="#menu5">Model</a></li>
-	    <li><a data-toggle="tab" href="#menu6">Build</a></li>
-	    <li onclick="javascript:$('.feedback').hide();"><a data-toggle="tab" href="#menu7">Run and Compare</a></li>
+	    <li><a data-toggle="tab" id="menu1list" href="#menu1">Domain </a></li>
+	    <li><a data-toggle="tab" id="menu2list" href="#menu2">Programming</a></li>
+	    <li><a data-toggle="tab" id="menu3list" href="#menu3">Focus-Q</a></li>
+	    <li><a data-toggle="tab" id="menu4list" href="#menu4">Experiment Design</a></li>
+	    <li><a data-toggle="tab" id="menu5list" href="#menu5">Model</a></li>
+	    <li><a data-toggle="tab" id="menu6list" href="#menu6">Build</a></li>
+	    <li><a data-toggle="tab" id="menu7list" href="#menu7">Run and Compare</a></li>
 	</ul>
 
 	<div class="tab-content">
@@ -168,11 +171,23 @@
 			document.getElementById(mcqi).innerHTML="Oh! Its Incorrect! ".concat(msg);
 		
 		}
-				//window.alert("JSR!");
-	document.getElementById(nextmcq.concat("1")).disabled=false;
-	document.getElementById(nextmcq.concat("2")).disabled=false;
-	document.getElementById(nextmcq.concat("3")).disabled=false;
-	document.getElementById(nextmcq.concat("4")).disabled=false;
+
+		
+		if (mcqi == 'mcq11') {
+			alert ("Since you have attempted all the questions, you can try designing an experiment for this problem.");
+			$("#menu4list").css('cursor', 'auto');
+			$("#menu4").css('visibility','visible');
+			
+		}
+		else
+		{
+			//window.alert("JSR!");
+			
+			document.getElementById(nextmcq.concat("1")).disabled=false;
+			document.getElementById(nextmcq.concat("2")).disabled=false;
+			document.getElementById(nextmcq.concat("3")).disabled=false;
+			document.getElementById(nextmcq.concat("4")).disabled=false;
+		}
 
 	}
 </script>	
@@ -278,7 +293,16 @@
 	
 
 	    </div>
-	    
+
+<script type="text/javascript">
+	    function enableModelTab() {
+        alert ("Since you have attempted to design an experiment, let us see how to model this problem ");
+            $("#menu5list").css('cursor', 'auto'); 
+            $("#menu5").css('visibility','visible');
+    }
+
+</script>
+
 	     <div id="menu4" class="tab-pane fade">
 	      	<h3>Experiment Design</h3>
 			<h4>Select one possible hypothesis:</h4>
@@ -306,20 +330,28 @@
 				<br/><br/>
 				<a href="#" data-toggle="tooltip" data-placement="top" title="The variable that undergoes change due to the experiment">Dependent variable (DV):</a>
 				
-				<select id="DV_Value">
+				<select id="IV_Value" onchange="enableModelTab()">
 					<option value="Initial ratio of Phenoypes">Initial ratio of genotypes</option>
 					<option value="Final ratio of Phenotypes">Final ratio of genotypes</option>
 					<option value="Genotypes">Phenotypes</option>
 				</select>
 				<br/><br/>
-				<a data-toggle="tab" href="#menu5"><button type="button" class="btn btn-primary tab-toggle">Submit</button></a> 
-				
+				<!-- <a data-toggle="tab" href="#menu5"><button type="button" class="btn btn-primary" >Submit</button></a> 
+				 -->
 			</div>
 	    </div>
-	    
+
+	    </script>
+		 <script type="text/javascript">
+		    function enableBuildTab() {
+		        alert ("Since you have attempted to model, the next step is to add rules of calculation ");
+		            $("#menu6list").css('cursor', 'auto');
+            		$("#menu6").css('visibility','visible');  
+	    	}
+	    </script>
 	    <div id="menu5" class="tab-pane fade">
 		    
-			    	<br/>
+			<br/>
 	    	<label> 
 		    	Agent <button type="button" class="btn btn-primary" id="addAgentButton"> + </button> 
 			</label>
@@ -334,38 +366,45 @@
 			    	<div id="environmentSpace"> 
 			    		<p> Specify the environment variables here: </p>
 			    		<label> Number of generations : </label> <input type="number" id="noOfGeneration" name="noOfGeneration" width='60px' />  <br/>
-			    		 <label> Type of cross: </label> <select> <option>None</option><option :selected>Self</option> <option>Inter-cross</option></select>
+			    		 <label> Type of cross: </label> <select onchange="enableBuildTab()"> <option>None</option><option :selected>Self</option> <option>Inter-cross</option></select>
 			    	</div>
 			    </div>
 			 </div>
-
+		<!-- menu5 - Model ends after this -->
 	    </div>
 	    
+	   <!--<script type="text/javascript">
+		    function enableRunTab() {
+		        alert ("Now let us see the result of your experiment.");
+		            $("#menu7list").css('cursor', 'auto');
+            		$("#menu7").css('visibility','visible');  
+	    	}
+	    </script>-->
+
 	    <div id="menu6" class="tab-pane fade">
 		    <h3>Build</h3>
 		    <label> 
-		    	Add rules <button type="button" class="btn btn-primary" id="addRuleButton"> + </button> 
+		    	Add rules <button type="button" class="btn btn-primary" id="addRuleButton" onchange="enableRunTab()"> + </button> 
 			</label>
 			<div id="addRuleDialog"> </div>
+			<div id="ruleDisplaySpace" > </div>
 		
-	    //menu6 - Build ends fter this
+	    <!-- menu6 - Build ends after this -->
 	    </div>
 	    
 	    <div id="menu7" class="tab-pane fade">
 		    <h3>Run and Compare</h3>
 		  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		<button onclick="javascript:drawChart();" value="Click here">Run Experiment</button>
 		  <script type="text/javascript">
 		    google.charts.load("current", {packages:['corechart']});
-		    //google.charts.setOnLoadCallback(drawChart);
+		    google.charts.setOnLoadCallback(drawChart);
 		    function drawChart() {
-		      runExperiment();
 		      var data = google.visualization.arrayToDataTable([
 			["No of generations", "No of plants", { role: "style" } ],
-			["Tall Yellow plant", 78, "yellow"],
-			["Tall Green plant", 9, "gold"],
-			["Short Yellow plant", 9, "silver"],
-			["Short Green plant", 3, "green"]
+			["Green pod tall plant", 78, "green"],
+			["Green pod short plant", 9, "silver"],
+			["Yellow pod tall plant", 9, "gold"],
+			["Yellow pod short plant", 3, "yellow"]
 		      ]);
 
 		      var view = new google.visualization.DataView(data);
@@ -373,98 +412,17 @@
 
 		      var options = {
 			title: "Actual Experiment Outcome",
-			width: 400,
+			width: 800,
 			height: 400,
 			bar: {groupWidth: "100%"}
 		      };
-		      var chart = new google.visualization.ColumnChart(document.getElementById("actual_chart"));
+		      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
 		      chart.draw(view, options);
-
-		      var data = google.visualization.arrayToDataTable([
-			["No of generations", "No of plants", { role: "style" } ],
-			["Tall Yellow plant", parseInt($("#phenotype1").val()), "yellow"],
-			["Tall Green plant", parseInt($("#phenotype2").val()), "gold"],
-			["Short Yellow plant", parseInt($("#phenotype3").val()), "silver"],
-			["Short Green plant", parseInt($("#phenotype4").val()), "green"]
-		      ]);
-
-		      var view = new google.visualization.DataView(data);
-		      
-
-		      var options = {
-			title: "Your Experiment Outcome",
-			width: 400,
-			height: 400,
-			bar: {groupWidth: "100%"}
-		      };
-		      var chart = new google.visualization.ColumnChart(document.getElementById("experiment_chart"));
-		      chart.draw(view, options);
-
 		  }
 		  </script>
-	    <table>
-	    <tr><td id="experiment_chart" style="width: 900px; height: 300px;"></td>
-<td id="actual_chart" style="width: 900px; height: 300px;"></td>	
-		</tr>
-	    </table>
-	    
-	   <input type="hidden" id="phenotype1" value="0"/>
-	   <input type="hidden" id="phenotype2" value="0"/>
-	   <input type="hidden" id="phenotype3" value="0"/>
-	   <input type="hidden" id="phenotype4" value="0"/>
-	   <div id="feedback">
-		<table>
-		<tr>
-		<td>
-		<div class=feedback" id="gyanu" style="display:none;">
-		<figure>
-		    <img src="image/MrGyanu.jpg" style="width: 150px;"/>
-		    <figcaption>Mr GYAANU<br></figcaption>
-		</figure>
-		</div>
-		</td>
-		<td>
-		<div class="feedback" id="initial_summary" style="display:none;">
-			Hypothesis - <label id="hypothesis_summary"></label><br>
-			Planned Test - <label id="test_summary"></label><br>
-			Actual Experiment Outcome - <label id="actual_experiment_summary"></label><br>
-			Your Experiment Outcome - <label id="your_experiment_summary"></label><br>
-			Do both the outcomes match?<br>
-	<button type="button" class="btn btn-primary tab-toggle" onclick="javascript:checkOutcomes('yes');">Yes</button>
-		<input type="button" value="no" onclick="javascript:checkOutcomes('no');" class="btn btn-primary" />
-		</div>
-		<div class="feedback" id="plantPropertiesFeedback" style="display:none;">
-		You have chosen the genotype of Plant A as <label id="PlantA_genotype_label"></label><br>
-		You have chosen the genotype of Plant B as <label id="PlantB_genotype_label"></label><br>
-		You have chosen number of generations as <label id="noOfGenerations_label"></label><br>
-		Do you want to revise your experiment design?
-		<a data-toggle="tab" href="#menu5"><button type="button" class="btn btn-primary tab-toggle" onclick="javascript:$('li').removeClass('active');$('#model_tab').addClass('active');">Yes</button></a> 
-		<input type="button" value="no" onclick="revisePlantNumbers();" class="btn btn-primary" />
-		</div>
-		<div class="feedback" id="plantNumbersFeedback" style="display:none;">
-		You have chosen the number of Plant A as <label id="PlantA_no_label"></label><br>
-		You have chosen the genotype of Plant B as <label id="PlantB_no_label"></label><br>
-		Do you want to revise these numbers?
-		<a data-toggle="tab" href="#menu5"><button type="button" class="btn btn-primary tab-toggle" onclick="javascript:$('li').removeClass('active');$('#model_tab').addClass('active');">Yes</button></a> 
-		<input type="button" value="no" onclick="reviseVariablesFeedback();" class="btn btn-primary">
-		</div>
-		<div class="feedback" id="variablesFeedback" style="display:none;">
-		You have chosen the dependent variable as <label id="dv_label"></label><br>
-		You have chosen the independent variable as <label id="iv_label"></label><br>
-		Do you want to revise these variables?
-		<a data-toggle="tab" href="#menu4"><button type="button" class="btn btn-primary tab-toggle" onclick="javascript:$('li').removeClass('active');$('#model_tab').addClass('active');">Yes</button></a> 
-		<input type="button" value="no" onclick="reviseHypothesisFeedback();" class="btn btn-primary">
-		</div>
-		<div class="feedback" id="hypothesisFeedback" style="display:none;">
-		You have chosen the hypothesis as <label id="hypothesis_label"></label><br>
-		Do you want to revise the hypothesis?
-		<a data-toggle="tab" href="#menu4"><button type="button" class="btn btn-primary tab-toggle" onclick="javascript:$('li').removeClass('active');$('#model_tab').addClass('active');">Yes</button></a> 
-		<input type="button" value="no" onclick="" class="btn btn-primary">
-		</div>
-		</td>
-		</tr>
-		</table>
-	   </div>
+	    <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
+	    </div>
+	   
   	</div>
 
 </div>

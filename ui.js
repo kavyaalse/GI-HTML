@@ -52,6 +52,12 @@ var agentB = {
 var rules = ["When TTYY do tall, green", "When ttyy do short, yellow", "When TtYy do 9, 3, 3, 1 "]
 $( document ).ready(function() {
 
+    $("#menu4").css('visibility','hidden');
+    $("#menu5").css('visibility','hidden');
+    $("#menu6").css('visibility','hidden');
+    /*$("#menu7").css('visibility','hidden');*/
+
+
     $( "#addAgentButton" ).click(function() {
         $( "#addAgentDialog" ).html("<fieldset><input type=\"checkbox\" name=\"selectAgent\" id=\"selectedAgentA\" value=\"plantA\" /> Plant A <br /><input type=\"checkbox\" name=\"selectAgent\" id=\"selectedAgentB\" value=\"plantB\" /> Plant B <br /> </fieldset>");
         $( "#addAgentDialog" ).dialog({
@@ -126,7 +132,7 @@ $( document ).ready(function() {
     function displayProperty1ValuesAgentA(event) {
           console.log ("Name : " + agentA.properties[0].name);
           if ($(this).is(':checked')) {
-              var temp_text = "<select id=\"agentAPlantHeight\"> <option> " + agentA.properties[0].value[0] + "</option> <option> " + agentA.properties[0].value[1] + "</option> <option>" + agentA.properties[0].value[2] + "</option> </select>" ;
+              var temp_text = "<select> <option> " + agentA.properties[0].value[0] + "</option> <option> " + agentA.properties[0].value[1] + "</option> <option>" + agentA.properties[0].value[2] + "</option> </select>" ;
               $( "#agentAproperty1valueSpace" ).html(temp_text);
 
           } else {
@@ -137,7 +143,7 @@ $( document ).ready(function() {
     function displayProperty2ValuesAgentA(event) {
           console.log ("Name : " + agentA.properties[1].name);
           if ($(this).is(':checked')) {
-              var temp_text = "<select id=\"agentASeedColor\"> <option> " + agentA.properties[1].value[0] + "</option> <option> " + agentA.properties[1].value[1] + "</option> <option>" + agentA.properties[1].value[2] + "</option> </select>" ;
+              var temp_text = "<select> <option> " + agentA.properties[1].value[0] + "</option> <option> " + agentA.properties[1].value[1] + "</option> <option>" + agentA.properties[1].value[2] + "</option> </select>" ;
               $( "#agentAproperty2valueSpace" ).html(temp_text);
           } else {
              $( "#agentAproperty2valueSpace" ).html("");
@@ -147,7 +153,7 @@ $( document ).ready(function() {
     function displayProperty1ValuesAgentB(event) {
           console.log ("Name : " + agentB.properties[0].name);
           if ($(this).is(':checked')) {
-              var temp_text = "<select id=\"agentBPlantHeight\"> <option> " + agentB.properties[0].value[0] + "</option> <option> " + agentB.properties[0].value[1] + "</option> <option>" + agentB.properties[0].value[2] + "</option> </select>" ;
+              var temp_text = "<select> <option> " + agentB.properties[0].value[0] + "</option> <option> " + agentB.properties[0].value[1] + "</option> <option>" + agentB.properties[0].value[2] + "</option> </select>" ;
               $( "#agentBproperty1valueSpace" ).html(temp_text);
           } else {
              $( "#agentBproperty1valueSpace" ).html("");
@@ -157,7 +163,7 @@ $( document ).ready(function() {
     function displayProperty2ValuesAgentB(event) {
           console.log ("Name : " + agentB.properties[1].name);
           if ($(this).is(':checked')) {
-              var temp_text = "<select id=\"agentBSeedColor\"> <option> " + agentB.properties[1].value[0] + "</option> <option> " + agentB.properties[1].value[1] + "</option> <option>" + agentB.properties[1].value[2] + "</option> </select>" ;
+              var temp_text = "<select> <option> " + agentB.properties[1].value[0] + "</option> <option> " + agentB.properties[1].value[1] + "</option> <option>" + agentB.properties[1].value[2] + "</option> </select>" ;
               $( "#agentBproperty2valueSpace" ).html(temp_text);
           } else {
              $( "#agentBproperty2valueSpace" ).html("");
@@ -171,10 +177,10 @@ $( document ).ready(function() {
             
             $("#addRuleDialog").html( $('<input />', { type: 'checkbox', id: 'rule1', value: 'rule1'}));
             $("#addRuleDialog").append( $('<label />', { for: 'rule1' , text:rules[0] }));
-            $("#addRuleDialog").append("<br/");
+            $("#addRuleDialog").append("<br/>");
             $("#addRuleDialog").append( $('<input />', { type: 'checkbox', id: 'rule2', value: 'rule2'}));
             $("#addRuleDialog").append( $('<label />', { for: 'rule2' , text:rules[1] }));
-            $("#addRuleDialog").append("<br/");
+            $("#addRuleDialog").append("<br/>");
             $("#addRuleDialog").append( $('<input />', { type: 'checkbox', id: 'rule3', value: 'rule3'}));
             $("#addRuleDialog").append( $('<label />', { for: 'rule3' , text:rules[2] }));
             $("#addRuleDialog").dialog({
@@ -187,7 +193,21 @@ $( document ).ready(function() {
                         text: "OK",
                         click: function() {
                             //
+                            var temp_text = "Here is the list of rules you have selected: <br/>"
                             $( this ).dialog( "close" );
+                            if ($("#rule1").is(':checked')){
+                                temp_text += rules[0];
+                                temp_text += "<br/>";
+                            }
+                            if ($("#rule2").is(':checked')){
+                                temp_text += rules[1];
+                                temp_text += "<br/>";
+                            }
+                            if ($("#rule3").is(':checked')){
+                                temp_text += rules[2];
+                                temp_text += "<br/>";
+                            }
+                            $("#ruleDisplaySpace").html(temp_text);
                         }
                     }
                 ],
@@ -205,6 +225,9 @@ $( document ).ready(function() {
             console.log (" again");
        });
 
+
 //document.ready closes after this
 });
 
+
+    
