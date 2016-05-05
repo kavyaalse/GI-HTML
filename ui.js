@@ -126,7 +126,7 @@ $( document ).ready(function() {
     function displayProperty1ValuesAgentA(event) {
           console.log ("Name : " + agentA.properties[0].name);
           if ($(this).is(':checked')) {
-              var temp_text = "<select> <option> " + agentA.properties[0].value[0] + "</option> <option> " + agentA.properties[0].value[1] + "</option> <option>" + agentA.properties[0].value[2] + "</option> </select>" ;
+              var temp_text = "<select id=\"agentAPlantHeight\"> <option> " + agentA.properties[0].value[0] + "</option> <option> " + agentA.properties[0].value[1] + "</option> <option>" + agentA.properties[0].value[2] + "</option> </select>" ;
               $( "#agentAproperty1valueSpace" ).html(temp_text);
 
           } else {
@@ -137,7 +137,7 @@ $( document ).ready(function() {
     function displayProperty2ValuesAgentA(event) {
           console.log ("Name : " + agentA.properties[1].name);
           if ($(this).is(':checked')) {
-              var temp_text = "<select> <option> " + agentA.properties[1].value[0] + "</option> <option> " + agentA.properties[1].value[1] + "</option> <option>" + agentA.properties[1].value[2] + "</option> </select>" ;
+              var temp_text = "<select id=\"agentASeedColor\"> <option> " + agentA.properties[1].value[0] + "</option> <option> " + agentA.properties[1].value[1] + "</option> <option>" + agentA.properties[1].value[2] + "</option> </select>" ;
               $( "#agentAproperty2valueSpace" ).html(temp_text);
           } else {
              $( "#agentAproperty2valueSpace" ).html("");
@@ -147,7 +147,7 @@ $( document ).ready(function() {
     function displayProperty1ValuesAgentB(event) {
           console.log ("Name : " + agentB.properties[0].name);
           if ($(this).is(':checked')) {
-              var temp_text = "<select> <option> " + agentB.properties[0].value[0] + "</option> <option> " + agentB.properties[0].value[1] + "</option> <option>" + agentB.properties[0].value[2] + "</option> </select>" ;
+              var temp_text = "<select id=\"agentBPlantHeight\"> <option> " + agentB.properties[0].value[0] + "</option> <option> " + agentB.properties[0].value[1] + "</option> <option>" + agentB.properties[0].value[2] + "</option> </select>" ;
               $( "#agentBproperty1valueSpace" ).html(temp_text);
           } else {
              $( "#agentBproperty1valueSpace" ).html("");
@@ -157,7 +157,7 @@ $( document ).ready(function() {
     function displayProperty2ValuesAgentB(event) {
           console.log ("Name : " + agentB.properties[1].name);
           if ($(this).is(':checked')) {
-              var temp_text = "<select> <option> " + agentB.properties[1].value[0] + "</option> <option> " + agentB.properties[1].value[1] + "</option> <option>" + agentB.properties[1].value[2] + "</option> </select>" ;
+              var temp_text = "<select id=\"agentBSeedColor\"> <option> " + agentB.properties[1].value[0] + "</option> <option> " + agentB.properties[1].value[1] + "</option> <option>" + agentB.properties[1].value[2] + "</option> </select>" ;
               $( "#agentBproperty2valueSpace" ).html(temp_text);
           } else {
              $( "#agentBproperty2valueSpace" ).html("");
@@ -208,5 +208,3 @@ $( document ).ready(function() {
 //document.ready closes after this
 });
 
-
-    
